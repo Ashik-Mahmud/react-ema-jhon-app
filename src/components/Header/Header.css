@@ -1,0 +1,37 @@
+/* header  */
+#header {
+  background-color: var(--primary-color);
+  min-height: 80px;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  position: relative;
+}
+.navbar ul {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  font-family: var(--lato);
+}
+.navbar ul a {
+  color: var(--light-color);
+  text-transform: capitalize;
+}
+.badge {
+  background-color: var(--light-color);
+  color: var(--primary-color);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  display: inline-block;
+  font-weight: bold;
+  border-radius: 50%;
+}
+.cart-icon {
+  font-size: 1.2rem;
+}

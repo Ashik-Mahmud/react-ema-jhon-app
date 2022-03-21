@@ -1,0 +1,44 @@
+/* hero  */
+
+#hero {
+  position: relative;
+  min-height: calc(100vh - 80px);
+  display: grid;
+  place-items: center;
+}
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  gap: 3rem;
+}
+.hero-container .hero-info {
+  width: min(100%);
+  position: relative;
+}
+.hero-info span {
+  color: var(--secondary-color);
+  font-size: 1.2rem;
+}
+.hero-info span b {
+  font-size: 1.5rem;
+}
+.hero-info h1 {
+  font-size: 3rem;
+  margin: 1rem 0rem;
+}
+.hero-info button {
+  background-color: var(--secondary-color);
+  padding: 0.7rem 1rem;
+  border: none;
+  outline: none;
+  margin-top: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 500;
+  font-family: var(--lato);
+}
+.hero-container .hero-image {
+  width: min(100%, 600px);
+}
