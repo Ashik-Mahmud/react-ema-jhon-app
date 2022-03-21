@@ -20,6 +20,13 @@
 .navbar ul a {
   color: var(--light-color);
   text-transform: capitalize;
+  transition: all 0.5s ease;
+}
+.navbar ul a:hover {
+  color: var(--secondary-color);
+}
+.navbar ul a.active {
+  color: var(--secondary-color);
 }
 .badge {
   background-color: var(--light-color);
