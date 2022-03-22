@@ -5,8 +5,9 @@
 
 :root {
   --lato: "Lato", poppins;
+  --poppins: "poppins", lato;
   --primary-color: #1c2b35;
-  --primary-color-alt: ##2a414f;
+  --primary-color-alt: #2a414f;
   --secondary-color: #ff9900;
   --secondary-color-alt: #995c00;
   --dark-color: #333;

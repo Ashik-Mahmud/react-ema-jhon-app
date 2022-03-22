@@ -12,14 +12,14 @@ function Header() {
             <img src={logo} alt="app logo" />
           </a>
           <ul className="primary-menu">
-            {["home", "Shops", "order", "order review"].map((link, index) => (
+            {["home", "Shops", "order"].map((link, index) => (
               <NavLinks key={link + index} linkName={link} />
             ))}
             <li>
-              <a href="/cart">
+              <NavLink to="/cart">
                 <MdOutlineShoppingCart className="cart-icon" />{" "}
                 <sup className="badge">15</sup>
-              </a>
+              </NavLink>
             </li>
           </ul>
         </nav>

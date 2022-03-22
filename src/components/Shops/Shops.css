@@ -1,0 +1,29 @@
+/* shops  */
+#shops {
+  padding: 2rem 0rem;
+  position: relative;
+}
+#shops .title {
+  background: #f8f8f8;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+}
+.shops-content {
+  display: grid;
+  grid-template-columns: 2fr 5fr;
+  position: relative;
+  grid-gap: 2rem;
+  margin: 2rem 0rem;
+  align-items: flex-start;
+}
+
+.shops-content .products-content {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 1rem;
+}
+.shops-content .filter-sidebar {
+  background-color: #f8f8f8;
+  padding: 1rem;
+}

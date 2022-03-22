@@ -1,0 +1,62 @@
+/* filter content */
+.filter-content {
+  position: relative;
+  margin: 1rem 0rem;
+}
+.search input,
+.category select,
+.brand select {
+  padding: 0.5rem;
+  font-family: var(--poppins);
+  width: 100%;
+  border: 1px solid #ccc;
+  outline: none;
+  margin-top: 0.5rem;
+  border-radius: 3px;
+  font-size: 1rem;
+}
+.filter-content .item {
+  margin-bottom: 1rem;
+}
+
+.filter-content .ratings {
+  position: relative;
+}
+.ratings label {
+  display: block;
+}
+.ratings .ratings-item {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  align-items: center;
+  margin-top: 1rem;
+}
+.ratings-item span {
+  display: block;
+  padding: 0.4rem;
+  background: var(--light-color);
+  cursor: pointer;
+  font-family: var(--poppins);
+  font-size: 0.9rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 2px;
+}
+.ratings-item span.active {
+  background: var(--primary-color);
+  color: var(--light-color);
+}
+.clear-filter-btn {
+  width: 100%;
+  margin-top: 2rem;
+  border: none;
+  outline: none;
+  background-color: var(--primary-color);
+  padding: 0.4rem;
+  color: var(--light-color);
+  font-family: var(--poppins);
+  font-size: 0.9rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
