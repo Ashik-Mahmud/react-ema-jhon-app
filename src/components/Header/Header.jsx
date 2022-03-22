@@ -8,9 +8,9 @@ function Header() {
     <header id="header">
       <div className="container p-md">
         <nav className="navbar">
-          <a href="/">
+          <NavLink to="/">
             <img src={logo} alt="app logo" />
-          </a>
+          </NavLink>
           <ul className="primary-menu">
             {["home", "Shops", "order"].map((link, index) => (
               <NavLinks key={link + index} linkName={link} />

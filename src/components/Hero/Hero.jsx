@@ -1,8 +1,10 @@
 import React from "react";
 import { BiCart } from "react-icons/bi";
+import { useNavigate } from "react-router";
 import HeroImage from "../../images/hero-image.jpg";
 import "./Hero.css";
 export const Hero = () => {
+  const navigate = useNavigate();
   return (
     <>
       <section id="hero">
@@ -14,7 +16,7 @@ export const Hero = () => {
               </span>
               <h1>New Collection for all</h1>
               <p>Discover all the new arrivals of ready-to-wear collection.</p>
-              <button>
+              <button onClick={() => navigate("/shops")}>
                 Shop Now <BiCart />
               </button>
             </div>
