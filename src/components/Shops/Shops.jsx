@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
 import Loader from "../Loader/Loader";
+import { addToCart } from "./AddToCart";
 import FilterSidebar from "./FilterSidebar/FilterSidebar";
 import Product from "./Product/Product";
 import "./Shops.css";
-const Shops = () => {
+import SideBar from "./SideBar/SideBar";
+const Shops = ({ setCartCount, cartCount }) => {
   const [products, setProducts] = useState([]);
   const [searchedProduct, setSearchedProduct] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [show, setShow] = useState(false);
+  const [sidebarProduct, setSidebarProduct] = useState([]);
   const loadProducts = async () => {
     const response = await fetch(`./products.json`);
     const data = await response.json();
@@ -19,9 +23,21 @@ const Shops = () => {
     loadProducts();
   }, []);
 
+  /*  working on add to cart  */
+  const addToCartProduct = (product) => {
+    addToCart(product);
+    setShow(true);
+    setSidebarProduct(product);
+  };
+
   return (
     <>
       <section id="shops">
+        <SideBar
+          show={show}
+          sidebarProduct={sidebarProduct}
+          setShow={setShow}
+        />
         <div className="container p-md">
           <div className="title">
             <h2>Shops</h2>
@@ -40,7 +56,13 @@ const Shops = () => {
                   searchedProduct
                     .slice(0, 30)
                     .map((product) => (
-                      <Product key={product.id} product={product} />
+                      <Product
+                        addToCartProduct={addToCartProduct}
+                        key={product.id}
+                        product={product}
+                        setCartCount={setCartCount}
+                        cartCount={cartCount}
+                      />
                     ))
                 ) : (
                   <img

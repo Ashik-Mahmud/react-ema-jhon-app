@@ -1,8 +1,9 @@
 import React from "react";
 import { AiTwotoneStar } from "react-icons/ai";
+import { StorageItem } from "../../LocalStorage/Storage";
 import "./Product.css";
-const Product = ({ product }) => {
-  const { name, img, seller, price, ratings, ratingsCount } = product;
+const Product = ({ product, addToCartProduct, setCartCount, cartCount }) => {
+  const { id, name, img, seller, price, ratings, ratingsCount } = product;
 
   /* dynamic star icon */
   let stars = [];
@@ -10,6 +11,9 @@ const Product = ({ product }) => {
     stars.push(i);
   }
 
+  /* get items from localStorage */
+  const items = StorageItem();
+  setCartCount(items.length);
   return (
     <div className="product-card">
       <div className="product-image">
@@ -30,7 +34,18 @@ const Product = ({ product }) => {
             <small>({ratingsCount})</small>
           </div>
         </div>
-        <button>Add to Cart</button>
+        <button
+          className={items
+            .map((item) => (item.id === id ? "disabled " : " "))
+            .join("")}
+          onClick={(e) => {
+            addToCartProduct(product);
+            e.target.classList.add("disabled");
+            setCartCount(cartCount + 1);
+          }}
+        >
+          Add To Cart
+        </button>
       </div>
     </div>
   );

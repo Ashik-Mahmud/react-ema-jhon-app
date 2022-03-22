@@ -1,9 +1,11 @@
 import React from "react";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { NavLink } from "react-router-dom";
+import { StorageItem } from "../LocalStorage/Storage";
 import logo from "./../../images/Logo.svg";
 import "./Header.css";
-function Header() {
+const Header = ({ cartCount }) => {
+  const items = StorageItem();
   return (
     <header id="header">
       <div className="container p-md">
@@ -18,7 +20,9 @@ function Header() {
             <li>
               <NavLink to="/cart">
                 <MdOutlineShoppingCart className="cart-icon" />{" "}
-                <sup className="badge">15</sup>
+                <sup className="badge">
+                  {cartCount ? cartCount : items.length}
+                </sup>
               </NavLink>
             </li>
           </ul>
@@ -26,7 +30,7 @@ function Header() {
       </div>
     </header>
   );
-}
+};
 
 const NavLinks = ({ linkName }) => {
   return (
