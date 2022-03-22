@@ -1,12 +1,19 @@
 import React, { useState } from "react";
 import { AiFillDelete } from "react-icons/ai";
-import { handleDecreaseCart, handleIncreaseCart } from "../HandleCart";
+import { useNavigate } from "react-router";
+import {
+  handleDecreaseCart,
+  handleIncreaseCart,
+  handleRemoveCard,
+} from "../HandleCart";
 import { ShowQuantity } from "../ShowData";
 import "./CartProduct.css";
 const CartProduct = ({ product, setTotalCartMoney }) => {
   const { category, name, img, stock, shipping, mainPrice } = product;
   const [cartQty, setCartQty] = useState(1);
   const [stockError, setStockError] = useState(false);
+
+  const navigate = useNavigate();
 
   return (
     <div className="cart-product">
@@ -75,7 +82,15 @@ const CartProduct = ({ product, setTotalCartMoney }) => {
             </div>
           </div>
         </div>
-        <div className="remove-btn">
+        <div
+          className="remove-btn"
+          onClick={() => {
+            if (window.confirm("Do you want to delete item?")) {
+              handleRemoveCard(product.id);
+              navigate("/cart");
+            }
+          }}
+        >
           <span>
             <AiFillDelete />
           </span>

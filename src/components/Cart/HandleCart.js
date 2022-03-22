@@ -48,6 +48,17 @@ const TotalMoneyFromStorage = () =>{
 
 
 
+/* handle remove card  */
+const handleRemoveCard = (id) =>{
+    const items = StorageItem();
+    const exceptRemoveItem = items.filter(item => item.id !== id);
+    localStorage.setItem("shopping-carts",JSON.stringify(exceptRemoveItem));
+    
+    
+}
 
-export { handleDecreaseCart, handleIncreaseCart };
+
+
+
+export { handleDecreaseCart, handleIncreaseCart, handleRemoveCard };
 
