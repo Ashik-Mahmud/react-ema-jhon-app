@@ -23,26 +23,28 @@ const Cart = () => {
           <div className="cart-summery">
             <h3>Order Summery</h3>
             <table>
-              <tr>
-                <td>Selected Items</td>
-                <th>7</th>
-              </tr>
-              <tr>
-                <td>Total Prices</td>
-                <th>45454$</th>
-              </tr>
-              <tr>
-                <td>Shipping Charge</td>
-                <th>5$</th>
-              </tr>
-              <tr>
-                <td>Total Tax (5%)</td>
-                <th>155$</th>
-              </tr>
-              <tr>
-                <th>Grand Total</th>
-                <th>10055$</th>
-              </tr>
+              <tbody>
+                <tr>
+                  <td>Selected Items</td>
+                  <th>7</th>
+                </tr>
+                <tr>
+                  <td>Total Prices</td>
+                  <th>45454$</th>
+                </tr>
+                <tr>
+                  <td>Shipping Charge</td>
+                  <th>5$</th>
+                </tr>
+                <tr>
+                  <td>Total Tax (5%)</td>
+                  <th>155$</th>
+                </tr>
+                <tr>
+                  <th>Grand Total</th>
+                  <th>10055$</th>
+                </tr>
+              </tbody>
             </table>
             <div className="cart-buttons">
               <button>
