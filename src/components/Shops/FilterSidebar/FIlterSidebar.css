@@ -3,6 +3,10 @@
   position: relative;
   margin: 1rem 0rem;
 }
+.filter-content label {
+  margin-bottom: 0.4rem;
+  display: block;
+}
 .search input,
 .category select,
 .brand select {
@@ -11,7 +15,6 @@
   width: 100%;
   border: 1px solid #ccc;
   outline: none;
-  margin-top: 0.5rem;
   border-radius: 3px;
   font-size: 1rem;
 }
@@ -59,4 +62,24 @@
   font-size: 0.9rem;
   border-radius: 5px;
   cursor: pointer;
+}
+.search-group {
+  display: flex;
+  align-items: stretch;
+  position: relative;
+}
+.search-group button {
+  padding: 0rem 1rem;
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: var(--light-color);
+  font-size: 1.1rem;
+  border: none;
+  outline: none;
+}
+img.empty-image {
+  position: absolute;
+  width: 66%;
+  left: 50%;
+  transform: translateX(-50%);
 }

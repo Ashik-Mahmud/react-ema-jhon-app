@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
+import Loader from "../Loader/Loader";
 import FilterSidebar from "./FilterSidebar/FilterSidebar";
 import Product from "./Product/Product";
 import "./Shops.css";
 const Shops = () => {
   const [products, setProducts] = useState([]);
-
+  const [searchedProduct, setSearchedProduct] = useState([]);
+  const [loading, setLoading] = useState(false);
   const loadProducts = async () => {
-    const response = await fetch(
-      `https://raw.githubusercontent.com/ProgrammingHero1/ema-john-resources/main/fakeData/products.json`
-    );
+    const response = await fetch(`./products.json`);
     const data = await response.json();
     setProducts(data);
-    console.log(data);
+    setSearchedProduct(data);
+    setLoading(true);
   };
 
   useEffect(() => {
@@ -28,13 +29,30 @@ const Shops = () => {
           </div>
           <div className="shops-content">
             <aside className="filter-sidebar">
-              <FilterSidebar />
+              <FilterSidebar
+                products={products}
+                setSearchedProduct={setSearchedProduct}
+              />
             </aside>
-            <div className="products-content">
-              {products.slice(0, 30).map((product) => (
-                <Product key={product.id} product={product} />
-              ))}
-            </div>
+            {loading ? (
+              <div className="products-content">
+                {searchedProduct.length > 0 ? (
+                  searchedProduct
+                    .slice(0, 30)
+                    .map((product) => (
+                      <Product key={product.id} product={product} />
+                    ))
+                ) : (
+                  <img
+                    className="empty-image"
+                    src="https://i.pinimg.com/originals/ae/8a/c2/ae8ac2fa217d23aadcc913989fcc34a2.png"
+                    alt="nothing"
+                  />
+                )}
+              </div>
+            ) : (
+              <Loader />
+            )}
           </div>
         </div>
       </section>
