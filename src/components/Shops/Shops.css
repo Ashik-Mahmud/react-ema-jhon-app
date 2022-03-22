@@ -17,6 +17,16 @@
   align-items: flex-start;
 }
 
+@media (max-width: 968px) {
+  .shops-content {
+    grid-template-columns: 2fr 3fr;
+  }
+}
+@media (max-width: 600px) {
+  .shops-content {
+    grid-template-columns: 1fr;
+  }
+}
 .shops-content .products-content {
   position: relative;
   display: grid;

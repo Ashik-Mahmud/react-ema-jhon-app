@@ -11,11 +11,24 @@
   align-items: center;
   justify-content: space-between;
   position: relative;
+  flex-wrap: wrap;
   gap: 3rem;
+}
+@media (max-width: 968px) {
+  #hero {
+    min-height: 100%;
+    padding: 2rem 0rem;
+  }
+}
+@media (max-width: 600px) {
+  .hero-container {
+    flex-direction: column;
+  }
 }
 .hero-container .hero-info {
   width: min(100%);
   position: relative;
+  flex: 1;
 }
 .hero-info span {
   color: var(--secondary-color);
@@ -41,4 +54,5 @@
 }
 .hero-container .hero-image {
   width: min(100%, 600px);
+  flex: 1;
 }
