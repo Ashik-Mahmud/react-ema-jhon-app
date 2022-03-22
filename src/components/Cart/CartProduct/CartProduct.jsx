@@ -1,37 +1,76 @@
-import React from "react";
+import React, { useState } from "react";
 import { AiFillDelete } from "react-icons/ai";
+import { handleDecreaseCart, handleIncreaseCart } from "../HandleCart";
+import { ShowQuantity } from "../ShowData";
 import "./CartProduct.css";
-const CartProduct = () => {
+const CartProduct = ({ product, setTotalCartMoney }) => {
+  const { category, name, img, stock, shipping, mainPrice } = product;
+  const [cartQty, setCartQty] = useState(1);
+  const [stockError, setStockError] = useState(false);
+
   return (
     <div className="cart-product">
       <div className="cart-image">
-        <img
-          width={"200"}
-          src="https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/2e8a6f09838d49c3b00fad4f0017f753_9366/Alliance_Sackpack_White_FZ6823_01_standard.jpg"
-          alt=""
-        />
+        <img width={"200"} src={img} alt={name} />
       </div>
       <div className="cart-details">
         <div className="inner-details">
           <div className="name-info">
-            <h3>product name</h3>
-            <span className="colorize">Category</span>
+            <h3>{name}</h3>
+            <span className="colorize">{category}</span>
           </div>
 
           <div className="others-info">
             <div className="prices">
-              <span className="colorize">1500$</span>
+              <span className="colorize">
+                {mainPrice * ShowQuantity(product.id)}$
+              </span>
               <div className="cart-counter">
-                <button>-</button>
-                <input type="number" value={"1"} readOnly />
-                <button>+</button>
+                <button
+                  onClick={() => {
+                    handleDecreaseCart(
+                      product,
+                      mainPrice,
+                      setCartQty,
+                      cartQty,
+                      setStockError,
+                      setTotalCartMoney
+                    );
+                  }}
+                >
+                  -
+                </button>
+                <input
+                  type="number"
+                  value={ShowQuantity(product.id)}
+                  readOnly
+                />
+                <button
+                  onClick={() => {
+                    handleIncreaseCart(
+                      product,
+                      mainPrice,
+                      setCartQty,
+                      cartQty,
+                      setStockError,
+                      setTotalCartMoney
+                    );
+                  }}
+                >
+                  +
+                </button>
+                {stockError ? <small>Stock Out</small> : ""}
               </div>
             </div>
 
             <div className="stock">
               <div>
                 <span>Stock - </span>
-                <b>19</b>
+                <b>{stock}</b>
+              </div>
+              <div>
+                <span>Shipping - </span>
+                <b>{shipping} $</b>
               </div>
             </div>
           </div>
