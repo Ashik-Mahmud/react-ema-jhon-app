@@ -1,30 +1,33 @@
 import React from "react";
 import { AiTwotoneStar } from "react-icons/ai";
 import "./Product.css";
-const Product = () => {
+const Product = ({ product }) => {
+  const { name, img, seller, price, ratings, ratingsCount } = product;
+
+  /* dynamic star icon */
+  let stars = [];
+  for (let i = 0; i < ratings; i++) {
+    stars.push(i);
+  }
+
   return (
     <div className="product-card">
       <div className="product-image">
-        <img
-          width={"200"}
-          src="https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/2e8a6f09838d49c3b00fad4f0017f753_9366/Alliance_Sackpack_White_FZ6823_01_standard.jpg"
-          alt=""
-        />
+        <img width={"200"} src={img} alt={name} />
       </div>
       <div className="details">
-        <h4>Product</h4>
-        <span>$1000</span>
+        <h4>{name}</h4>
+        <span>${price}</span>
         <div className="inner-details">
-          <span>Brand</span>
+          <span>{seller}</span>
           <div>
             <div className="stars">
-              <AiTwotoneStar />
-              <AiTwotoneStar />
-              <AiTwotoneStar />
-              <AiTwotoneStar />
+              {stars.map((star) => (
+                <AiTwotoneStar key={star} />
+              ))}
             </div>
-            <span>4</span>
-            <small>(200)</small>
+            <span>{ratings}</span>
+            <small>({ratingsCount})</small>
           </div>
         </div>
         <button>Add to Cart</button>

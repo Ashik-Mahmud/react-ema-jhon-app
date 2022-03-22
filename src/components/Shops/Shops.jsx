@@ -1,8 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import FilterSidebar from "./FilterSidebar/FilterSidebar";
 import Product from "./Product/Product";
 import "./Shops.css";
 const Shops = () => {
+  const [products, setProducts] = useState([]);
+
+  const loadProducts = async () => {
+    const response = await fetch(
+      `https://raw.githubusercontent.com/ProgrammingHero1/ema-john-resources/main/fakeData/products.json`
+    );
+    const data = await response.json();
+    setProducts(data);
+    console.log(data);
+  };
+
+  useEffect(() => {
+    loadProducts();
+  }, []);
+
   return (
     <>
       <section id="shops">
@@ -16,17 +31,9 @@ const Shops = () => {
               <FilterSidebar />
             </aside>
             <div className="products-content">
-              <Product />
-              <Product />
-              <Product />
-              <Product />
-              <Product />
-              <Product />
-              <Product />
-              <Product />
-              <Product />
-              <Product />
-              <Product />
+              {products.slice(0, 30).map((product) => (
+                <Product key={product.id} product={product} />
+              ))}
             </div>
           </div>
         </div>
