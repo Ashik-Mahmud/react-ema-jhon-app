@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import "./App.css"
 import Cart from './components/Cart/Cart'
 import Header from './components/Header/Header'
+import Order from './components/Order/Order'
 import { Home } from './components/Pages/Home'
 import Shops from './components/Shops/Shops'
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
                 <Route path='/' element={<Home />} />
                 <Route path='/shops' element={ <Shops />} />
                 <Route path="/cart" element={<Cart />} />
+                <Route path='/order' element={<Order />} />
             </Routes>
         </BrowserRouter>        
         
