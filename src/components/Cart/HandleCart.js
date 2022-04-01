@@ -53,8 +53,7 @@ const handleRemoveCard = (id) =>{
     const items = StorageItem();
     const exceptRemoveItem = items.filter(item => item.id !== id);
     localStorage.setItem("shopping-carts",JSON.stringify(exceptRemoveItem));
-    
-    
+        
 }
 
 
